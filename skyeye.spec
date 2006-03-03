@@ -3,16 +3,13 @@ Summary(pl):	SkyEye - symulator procesora ARM
 Name:		skyeye
 Version:	1.0.0
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Applications
 Source0:	http://download.gro.clinux.org/skyeye/%{name}-%{version}.tar.bz2
 # Source0-md5:	f28212bda583fdec6b48540da689977d
 Source1:	skyeye.conf
 URL:		http://www.skyeye.org/
-BuildRequires:	atk-devel
-BuildRequires:	freetype-devel >= 2.0
-BuildRequires:	glib-devel
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,7 +31,9 @@ analizê i odpluskiwanie na poziomie kodu ¼ród³owego.
 install %{SOURCE1} .
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -DSTANDALONE -DDEFAULT_INLINE=0 -DMODET \$(SIM_EXTRA_CFLAGS) -I. `pkg-config --cflags gtk+-2.0`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
