@@ -1,5 +1,5 @@
 Summary:	SkyEye - an Open Source Simulator for ARM
-Summary(pl):	SkyEye - symulator procesora ARM
+Summary(pl.UTF-8):   SkyEye - symulator procesora ARM
 Name:		skyeye
 Version:	1.0.0
 Release:	1
@@ -19,12 +19,12 @@ EP7312, cs89712, StrongARM (SA1100/SA1110), XScale PXA25x. Users can
 run Operating Systems such as Linux, uCLinux, uC/OS-II for ARM and can
 analyze or debug in source level.
 
-%description -l pl
-SkyEye jest symulatorem o otwartych ¼ród³ach. Symuluje nastêpuj±ce 
+%description -l pl.UTF-8
+SkyEye jest symulatorem o otwartych ÅºrÃ³dÅ‚ach. Symuluje nastÄ™pujÄ…ce 
 procesory: Atmel AT91, EP7312, cs89712, StrongARM (SA1100/SA1110), 
-XScale PXA25x. Umo¿liwia uruchomienie systemów operacyjnych
+XScale PXA25x. UmoÅ¼liwia uruchomienie systemÃ³w operacyjnych
 takich jak Linux, uCLinux, uC/OS-II na procesorze ARM, ich
-analizê i odpluskiwanie na poziomie kodu ¼ród³owego.
+analizÄ™ i odpluskiwanie na poziomie kodu ÅºrÃ³dÅ‚owego.
 
 %prep
 %setup -q
