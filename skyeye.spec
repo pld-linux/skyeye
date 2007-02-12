@@ -1,5 +1,5 @@
 Summary:	SkyEye - an Open Source Simulator for ARM
-Summary(pl.UTF-8):   SkyEye - symulator procesora ARM
+Summary(pl.UTF-8):	SkyEye - symulator procesora ARM
 Name:		skyeye
 Version:	1.0.0
 Release:	1
