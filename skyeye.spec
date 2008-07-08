@@ -1,12 +1,12 @@
 Summary:	SkyEye - an Open Source Simulator for ARM
 Summary(pl.UTF-8):	SkyEye - symulator procesora ARM
 Name:		skyeye
-Version:	1.0.0
+Version:	1.2.5
 Release:	1
 License:	GPL v2+
 Group:		Applications
-Source0:	http://download.gro.clinux.org/skyeye/%{name}-%{version}.tar.bz2
-# Source0-md5:	f28212bda583fdec6b48540da689977d
+Source0:	http://download.gro.clinux.org/skyeye/%{name}-%{version}_REL.tar.gz
+# Source0-md5:	afa9b84961e17b306b656df143775292
 Source1:	skyeye.conf
 URL:		http://www.skyeye.org/
 BuildRequires:	gtk+2-devel >= 2.0.0
@@ -27,19 +27,24 @@ takich jak Linux, uCLinux, uC/OS-II na procesorze ARM, ich
 analizę i odpluskiwanie na poziomie kodu źródłowego.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}_REL
 install %{SOURCE1} .
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -DSTANDALONE -DDEFAULT_INLINE=0 -DMODET \$(SIM_EXTRA_CFLAGS) -I. `pkg-config --cflags gtk+-2.0`"
+%{__aclocal}
+%{__automake}
+%{__autoconf}
+
+%configure	\
+	--enable-lcd
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
 
-install binary/skyeye $RPM_BUILD_ROOT%{_bindir}
+%{__make} install	\
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
